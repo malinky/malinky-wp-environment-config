@@ -1,50 +1,4 @@
 <?php
-/**
- * The base configurations of the WordPress.
- *
- * This file has the following configurations: MySQL settings, Table Prefix,
- * Secret Keys, WordPress Language, and ABSPATH. You can find more information
- * by visiting {@link http://codex.wordpress.org/Editing_wp-config.php Editing
- * wp-config.php} Codex page. You can get the MySQL settings from your web host.
- *
- * This file is used by the wp-config.php creation script during the
- * installation. You don't have to use the web site, you can just copy this file
- * to "wp-config.php" and fill in the values.
- *
- * @package WordPress
- */
-
-/* ------------------------------------------------------------------------ *
- * Environment Setup
- * ------------------------------------------------------------------------ */
-
-if (isset($_SERVER['X_FORWARDED_HOST']) && !empty($_SERVER['X_FORWARDED_HOST'])) {
-
-    $hostname = $_SERVER['X_FORWARDED_HOST'];
-    $subdomain = array_shift( ( explode( ".", $_SERVER['X_FORWARDED_HOST'] ) ) );
-
-} else {
-
-    $hostname = $_SERVER['HTTP_HOST'];
-    $subdomain = array_shift( ( explode( ".",$_SERVER['HTTP_HOST'] ) ) );
-
-}
-
-if ( ! defined( 'WP_ENV' ) ) {
-
-    switch ( $subdomain ) {
-        case 'local':
-            define( 'WP_ENV', 'local' );
-            break;
-        case 'dev':
-            define( 'WP_ENV', 'dev' );
-            break;
-        case 'www':
-        default: 
-            define( 'WP_ENV', 'prod' );
-    }
-}
-
 if ( ! empty( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] != 'off' ) {
 
     $protocol = 'https://';
@@ -79,7 +33,7 @@ if ( WP_ENV == 'local' ) {
 } elseif ( WP_ENV == 'dev' ) {
 
     define('DB_NAME', '');
-    define('DB_USER', 'root');
+    define('DB_USER', '');
     define('DB_PASSWORD', '');
     define('DB_HOST', 'localhost');
     define('DB_CHARSET', 'utf8');
@@ -88,7 +42,7 @@ if ( WP_ENV == 'local' ) {
 } else {
 
     define('DB_NAME', '');
-    define('DB_USER', 'root');
+    define('DB_USER', '');
     define('DB_PASSWORD', '');
     define('DB_HOST', 'localhost');
     define('DB_CHARSET', 'utf8');
@@ -145,7 +99,7 @@ if ( WP_ENV == 'local' || WP_ENV == 'dev' ) {
 
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
+    define('ABSPATH', dirname(__FILE__) . '/');
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
