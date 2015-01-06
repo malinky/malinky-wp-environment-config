@@ -45,7 +45,7 @@ if ( WP_ENV == 'local' ) {
 
     require_once(ABSPATH . '/malinky-includes/wp-config.php');
 
-} elseif ( WP_ENV == 'dev' || WP_ENV == 'prod' ) {
+} elseif ( WP_ENV == 'dev' ) {
 
     require_once(ABSPATH . '../malinky-includes/wp-config.php');    
 
