@@ -30,7 +30,6 @@ if ( ! defined( 'WP_ENV' ) ) {
     }
 }
 
-
 /* ------------------------------------------------------------------------ *
  * Load Include
  * ------------------------------------------------------------------------ */
@@ -40,14 +39,14 @@ if ( !defined('ABSPATH') )
 
 if ( WP_ENV == 'local' ) {
 
-    require_once(ABSPATH . '../malinky-includes/wp-config.php');
+    require_once(ABSPATH . 'malinky-includes/wp-config.php');
 
 } elseif ( WP_ENV == 'dev' ) {
 
-    require_once(ABSPATH . '../../../malinky-includes/wp-config.php');    
+    require_once(ABSPATH . '../../malinky-includes/wp-config.php');    
 
 } else {
 
-    require_once(ABSPATH . '../../malinky-includes/wp-config.php');
+    require_once(ABSPATH . '../malinky-includes/wp-config.php');
 
 }
