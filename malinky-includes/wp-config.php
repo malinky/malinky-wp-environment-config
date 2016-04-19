@@ -96,13 +96,6 @@ if ( WP_ENV == 'local' || WP_ENV == 'dev' ) {
 }
 
 /**
- * Set new WP_CONTENT_DIR and WP_CONTENT_URL as they are outside of submodule wordpress/ folder.
- * They are actually in the root.
- */
-define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wp-content');
-define('WP_CONTENT_URL', $protocol . $hostname . '/wp-content');
-
-/**
  * Disbale automatic updates locally so they can be done when chosing.
  * Dev and Prod environments have all update disbaled in admin so they can be pushed from version control.
  */
