@@ -11,7 +11,7 @@ if ( ! empty( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] != 'off' ) {
 
 if ( ! defined( 'WP_SITEURL' ) ) {
 
-    define( 'WP_SITEURL', $protocol . $hostname . '/wordpress' );
+    define( 'WP_SITEURL', $protocol . $hostname . '/' );
 
 }
 
@@ -112,9 +112,17 @@ if ( WP_ENV == 'local' ) {
 
 } else {
 
-    define( 'DISALLOW_FILE_MODS', true );
+    // Disallow file edit only.
+    define( 'DISALLOW_FILE_EDIT', true );
+    // Disallow file edit and plugin and theme updates.
+    // define( 'DISALLOW_FILE_MODS', true );
 
 }
+
+/**
+ * Limit the number of revisions.
+ */
+define( 'WP_POST_REVISIONS', 3 );
 
 /* That's all, stop editing! Happy blogging. */
 
